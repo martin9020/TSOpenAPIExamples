@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" >
-  <PropertyGroup>
-    <TeklaStructuresInstallationPath Condition="'$(Configuration)' == 'Debug'">C:\Program Files\Tekla Structures\2024.0\bin</TeklaStructuresInstallationPath>
-  </PropertyGroup>
+	<PropertyGroup>
+		<!-- Force configuration to be debug in case none provided, happens if running from command line: example: dotnet build -->
+		<Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>
+		<TeklaStructuresInstallationPath Condition="'$(Configuration)' == 'Debug'">C:\Program Files\Tekla Structures\2024.0\bin</TeklaStructuresInstallationPath>
+		<!-- Or Tekla Version can be used instead -->
+		<!--TeklaVersion Condition="'$(Configuration)' == 'Debug'">2024.0</TeklaVersion-->
+	</PropertyGroup>
 </Project>

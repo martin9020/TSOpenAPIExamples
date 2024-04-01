@@ -17,7 +17,7 @@ namespace SpliceConnSidePaneFeature
             AddPropertyGroup("Props", "General Properties");
             AddSingleProperty("Props", Single.Double, "PlateLength", "Plate Length", "Not in use");
             AddSingleProperty("Props", Single.String, "BoltStandard", "Bolt Standard", "Not in use");
-
+            
             AddPropertyGroup("General", "General");
             AddSingleProperty("General", Single.Integer, "OBJECT_LOCKED", "Object locked", "1 to lock");
             AddSingleProperty("General", Single.Integer, "group_no", "Class", "class");
