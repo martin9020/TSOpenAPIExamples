@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TEP Version="2.0">
+
+  <Product Id="TSAPIExampleRibbon" UpgradeCode="f3572a12-596e-428a-a743-a64004be2061" Version="1.0" Language="1033" 
+    Name="Tekla Structures Open API Ribbon Example" Manufacturer="Trimble Solutions Corporation"  Description= "Creates custom ribbon for TeklaStructures Open API tools"
+    IconPath="%InstallerFolder%\Bitmaps\Icon.png" Type="Extension">
+    <TeklaVersions>
+      <TeklaVersion Name="2024.0"/>
+      <MinTeklaVersion Name="2024.0"/>
+      <MaxTeklaVersion Name="2099.1"/>
+    </TeklaVersions>
+  </Product>
+   
+  <SourcePathVariables>
+    <SourcePathVariable Id="TepOutputFolder" Value="%TEPDEFINITIONFILEFOLDER%\output" Comment="This provides the location where the package builder is to save the package."/>
+    <SourcePathVariable Id="InstallerFolder" Value="%TEPDEFINITIONFILEFOLDER%"/>
+    </SourcePathVariables>
+
+  <TargetPathVariables>
+    <PathVariable Id="BitmapsDirectory" Value="%ENVDIR%\..\bitmaps\"/>
+    <PathVariable Id="APIToolsDirectory" Value="%ENVDIR%\common\extensions\TSOpenAPIExamples\"/>
+    <PathVariable Id="CommonMacroDirectory" Value="%commonEnvFolder%\macros\modeling\"/>
+    <PathVariable Id="CustomRibbonDirectory" Value="%commonEnvFolder%\system\Ribbons\CustomTabs\Modeling\"/>
+    <PathVariable Id="RibbonTooltipsDirectory" Value="%ENVDIR%\common\extensions\tooltips\"/>	
+    <PathVariable Id="RibbonTooltipsDirectoryEnu" Value="%RibbonTooltipsDirectory%\enu\"/>	
+    <PathVariable Id="RibbonTooltipsDirectoryEsp" Value="%RibbonTooltipsDirectory%\esp\"/>	
+  </TargetPathVariables>
+
+  <Component Id="TheExtensionComponent" Guid="785ec600-0fea-4663-b65c-d40187016e81">
+    <File Id="PluginCatalogThumbnail" Source="%InstallerFolder%\Bitmaps\et_element_BeamPlugin.bmp" Target="%BitmapsDirectory%" />
+    <File Id="PluginFile" Source="%InstallerFolder%\BuildDrop\BeamPlugin.dll" Target="%APIToolsDirectory%" />
+    <File Id="ApplicationFile" Source="%InstallerFolder%\BuildDrop\BeamApplication.exe" Target="%APIToolsDirectory%" />
+	<File Id="BeamAppMacroFile" Source="%InstallerFolder%\BuildDrop\BeamApplication.cs" Target="%CommonMacroDirectory%" />
+	<File Id="MacroCatalogThumbnailFile" Source="%InstallerFolder%\Bitmaps\BeamApplication.bmp" Target="%CommonMacroDirectory%" />
+	<File Id="RibbonTabFile" Source="%InstallerFolder%\Ribbon\TSOpenAPIExamplesRibbonTab.xml" Target="%CustomRibbonDirectory%" />
+	<File Id="BeamAppRibbonIconFile" Source="%InstallerFolder%\Bitmaps\BeamApp.jpg" Target="%CustomRibbonDirectory%" />
+	<File Id="BeamPluginRibbonIconFile" Source="%InstallerFolder%\Bitmaps\BeamPlugin.jpg" Target="%CustomRibbonDirectory%" />
+	<File Id="RibbonTooltipsFile" Source="%InstallerFolder%\Ribbon\Tooltips\TSOpenAPIExamplesRibbonTooltips.xml" Target="%RibbonTooltipsDirectory%" />
+	<File Id="RibbonTooltipAssetFile" Source="%InstallerFolder%\Bitmaps\Icon.png" Target="%RibbonTooltipsDirectory%" />
+	<File Id="RibbonAppTooltipEnu" Source="%InstallerFolder%\Ribbon\Tooltips\enu\BeamAppTooltip.xml" Target="%RibbonTooltipsDirectoryEnu%" />
+	<File Id="RibbonPluginTooltipEnu" Source="%InstallerFolder%\Ribbon\Tooltips\enu\BeamPluginTooltip.xml" Target="%RibbonTooltipsDirectoryEnu%" />
+	<File Id="RibbonTooltipAssetEnuFile" Source="%InstallerFolder%\Bitmaps\Icon.png" Target="%RibbonTooltipsDirectoryEnu%" />
+	<File Id="RibbonAppTooltipEsp" Source="%InstallerFolder%\Ribbon\Tooltips\esp\BeamAppTooltip.xml" Target="%RibbonTooltipsDirectoryEsp%" />	
+	<File Id="RibbonPluginTooltipEsp" Source="%InstallerFolder%\Ribbon\Tooltips\esp\BeamPluginTooltip.xml" Target="%RibbonTooltipsDirectoryEsp%" />	
+	<File Id="RibbonTooltipAssetEspFile" Source="%InstallerFolder%\Bitmaps\Icon.png" Target="%RibbonTooltipsDirectoryEsp%" />
+  </Component>
+
+  <Feature Id="TheExtensionFeature" Title="ExtensionFeature">
+    <ComponentRef ReferenceId="TheExtensionComponent" />
+  </Feature>
+
+ </TEP>
