@@ -79,7 +79,7 @@ namespace BoundingBoxDrawer
             if (drawingObject is IAxisAlignedBoundingBox)
             {
                 drawingObject.Select();
-                RectangleBoundingBox currentBB = (drawingObject as IAxisAlignedBoundingBox).GetAxisAlignedBoundingBox();
+                RectangleBoundingBox currentBB = (drawingObject as IAxisAlignedBoundingBox)!.GetAxisAlignedBoundingBox();
                 Console.WriteLine("Drawing AABB for {0}", drawingObject.GetType().Name);
 
                 DrawBB(drawingObject.GetView(), currentBB, DrawingColors.Red);
@@ -88,7 +88,7 @@ namespace BoundingBoxDrawer
             if (drawingObject is IObjectAlignedBoundingBox)
             {
                 drawingObject.Select();
-                RectangleBoundingBox currentBB = (drawingObject as IObjectAlignedBoundingBox).GetObjectAlignedBoundingBox();
+                RectangleBoundingBox currentBB = (drawingObject as IObjectAlignedBoundingBox)!.GetObjectAlignedBoundingBox();
                 Console.WriteLine("Drawing OABB for {0}: Width: {1}, Height: {2}, Angle: {3}",
                     drawingObject.GetType().Name,
                     Distance.PointToPoint(currentBB.LowerRight, currentBB.LowerLeft),
