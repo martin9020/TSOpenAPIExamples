@@ -3,8 +3,8 @@
 	<PropertyGroup>
 		<!-- Force configuration to be debug in case none provided, happens if running from command line: example: dotnet build -->
 		<Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>
-		<TeklaStructuresInstallationPath Condition="'$(Configuration)' == 'Debug'">C:\Program Files\Tekla Structures\2024.0\bin</TeklaStructuresInstallationPath>
-		<!-- Or Tekla Version can be used instead -->
-		<!--TeklaVersion Condition="'$(Configuration)' == 'Debug'">2024.0</TeklaVersion-->
+		<TeklaVersion Condition="'$(Configuration)' == 'Debug'">2024.0</TeklaVersion>
+		<!-- Or TeklaStructures Installation path can be used instead -->
+		<!--TeklaStructuresInstallationPath Condition="'$(Configuration)' == 'Debug'">C:\Program Files\Tekla Structures\2024.0\bin</TeklaStructuresInstallationPath-->
 	</PropertyGroup>
 </Project>
