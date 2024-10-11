@@ -119,8 +119,10 @@ namespace ExportComponents
             component.LoadAttributesFromFile(SelectedFile);
 
             // It is also possible to set individual attributes with code
+            // Check attribute files, different export formats can use different attribute names
+            //component.SetAttribute("OutputFile", OutputFileName); // IFC export
+            //component.SetAttribute("outfile", OutputFileName); // DWG export
             //component.SetAttribute("outtype", 0);
-            //component.SetAttribute("outfile", OutputFileName);
             //component.SetAttribute("cuts", 0);
             //component.SetAttribute("boltaccuracy", 2);
             //component.SetAttribute("partaccuracy", 1);
